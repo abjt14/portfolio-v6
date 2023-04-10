@@ -1,0 +1,85 @@
+.bulb {
+  box-shadow: 0px 0px 1rem 0px rgba(250, 250, 250, .5);
+  transform: rotate(0deg);
+  animation: rotate-bulb 5s infinite;
+}
+
+.light {
+  border: 5rem inset transparent;
+  border-top: 0;
+  border-bottom: 70vh inset rgba(255, 255, 255, 1);
+  transform: translateX(-50%) rotate(60deg);
+  animation: rotate-light 5s infinite;
+}
+
+@keyframes rotate-light {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(-55deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+@keyframes rotate-bulb {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-55deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media screen and (min-width: 640px) {
+  @keyframes rotate-light {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    35% {
+      transform: translateX(-50%) rotate(-85deg);
+    }
+    60% {
+      transform: translateX(-50%) rotate(-25deg);
+    }
+    85% {
+      transform: translateX(-50%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+  }
+
+  @keyframes rotate-bulb {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-85deg);
+    }
+    50% {
+      transform: rotate(-25deg);
+    }
+    75% {
+      transform: rotate(30deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .bulb {
+    animation: none;
+  }
+
+  .light {
+    animation: none;
+  }
+}
