@@ -4,15 +4,15 @@ import clsx from "clsx";
 
 export default function Home() {
   return (
-    <main className="flex-1 flex flex-col gap-8 items-start justify-start max-w-xl sm:pt-[8.125rem]">
-      <div className="flex gap-8 relative flex-col sm:flex-row sm:gap-4">
+    <main className="flex-1 flex flex-col gap-8 items-start justify-start max-w-xl sm:pt-[7.825rem]">
+      <div className="relative">
         <div className="relative">
-          <div id="bulb" className={clsx(
+          {/* <div id="bulb" className={clsx(
             "inline-block rounded-full py-[.4rem] px-[1.1rem] aspect-square border border-neutral-50 will-change-transform relative z-20",
             styles.bulb
-          )}>❘</div>
+          )}>❘</div> */}
           <div id="light" className={clsx(
-            "absolute top-6 left-6 origin-top blur-xl mix-blend-color-dodge z-10 pointer-events-none will-change-transform",
+            "absolute top-0 left-0 sm:top-24 sm:-left-4 origin-top blur-xl mix-blend-color-dodge z-10 pointer-events-none will-change-transform",
             styles.light
           )}></div>
         </div>

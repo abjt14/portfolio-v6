@@ -1,8 +1,8 @@
-.bulb {
+/* .bulb {
   box-shadow: 0px 0px 1rem 0px rgba(250, 250, 250, .5);
   transform: rotate(0deg);
   animation: rotate-bulb 5s infinite;
-}
+} */
 
 .light {
   border: 5rem inset transparent;
@@ -24,7 +24,7 @@
   }
 }
 
-@keyframes rotate-bulb {
+/* @keyframes rotate-bulb {
   0% {
     transform: rotate(0deg);
   }
@@ -34,7 +34,7 @@
   100% {
     transform: rotate(0deg);
   }
-}
+} */
 
 @media screen and (min-width: 640px) {
   @keyframes rotate-light {
@@ -44,34 +44,28 @@
     35% {
       transform: translateX(-50%) rotate(-85deg);
     }
-    60% {
-      transform: translateX(-50%) rotate(-25deg);
-    }
-    85% {
-      transform: translateX(-50%) rotate(45deg);
+    70% {
+      transform: translateX(-50%) rotate(-45deg);
     }
     100% {
       transform: translateX(-50%) rotate(0deg);
     }
   }
 
-  @keyframes rotate-bulb {
+  /* @keyframes rotate-bulb {
     0% {
       transform: rotate(0deg);
     }
-    25% {
+    35% {
       transform: rotate(-85deg);
     }
-    50% {
-      transform: rotate(-25deg);
-    }
-    75% {
-      transform: rotate(30deg);
+    70% {
+      transform: rotate(-45deg);
     }
     100% {
       transform: rotate(0deg);
     }
-  }
+  } */
 }
 
 @media (prefers-reduced-motion) {
