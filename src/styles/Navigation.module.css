@@ -1,3 +1,35 @@
+.fadein {
+  opacity: 0;
+  animation: fade-in .5s ease forwards;
+}
+
+.fadein:nth-of-type(1) {
+  animation-delay: 1.00s;
+}
+
+.fadein:nth-of-type(2) {
+  animation-delay: 1.05s;
+}
+
+.fadein:nth-of-type(3) {
+  animation-delay: 1.10s;
+}
+
+.fadein:nth-of-type(4) {
+  animation-delay: 1.15s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media screen and (min-width: 640px) {
   .pill::after {
     background-color: rgba(229, 229, 229, 1);
