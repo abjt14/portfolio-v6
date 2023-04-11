@@ -28,7 +28,7 @@ export default function RootLayout({
       kaiseiTokumin.variable
     )}>
       <body>
-        <div className="min-h-screen flex gap-8 max-w-screen-lg m-auto py-8 px-8 flex-col relative sm:flex-row sm:pt-0 sm:pb-0 sm:px-16 sm:gap-6">
+        <div className="min-h-screen flex gap-24 max-w-screen-lg m-auto py-8 px-8 flex-col relative sm:flex-row sm:pt-0 sm:pb-0 sm:px-16 sm:gap-6">
           <Navigation />
           {children}
         </div>
