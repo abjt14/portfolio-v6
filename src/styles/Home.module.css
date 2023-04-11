@@ -1,15 +1,76 @@
-/* .bulb {
-  box-shadow: 0px 0px 1rem 0px rgba(250, 250, 250, .5);
-  transform: rotate(0deg);
-  animation: rotate-bulb 5s infinite;
-} */
+.fadein {
+  opacity: 0;
+  animation: fade-in .75s ease forwards;
+}
+
+.fadein:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.fadein:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.fadein:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+
+.fadein:nth-of-type(4) {
+  animation-delay: 0.45s;
+}
+
+.fadein:nth-of-type(5) {
+  animation-delay: 0.6s;
+}
+
+@media screen and (min-width: 640px) {
+  .fadein:nth-of-type(1) {
+    animation-delay: 1s;
+  }
+
+  .fadein:nth-of-type(2) {
+    animation-delay: 1.15s;
+  }
+
+  .fadein:nth-of-type(3) {
+    animation-delay: 1.3s;
+  }
+
+  .fadein:nth-of-type(4) {
+    animation-delay: 1.45s;
+  }
+
+  .fadein:nth-of-type(5) {
+    animation-delay: 1.6s;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .light {
   border: 5rem inset transparent;
   border-top: 0;
   border-bottom: 70vh inset rgba(255, 255, 255, 1);
   transform: translateX(-50%) rotate(60deg);
-  animation: rotate-light 5s infinite;
+  animation: rotate-light 5s infinite 2.5s, light-fade-in 1s ease-out 2.5s forwards;
+}
+
+@keyframes light-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes rotate-light {
@@ -23,18 +84,6 @@
     transform: translateX(-50%) rotate(0deg);
   }
 }
-
-/* @keyframes rotate-bulb {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-55deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-} */
 
 @media screen and (min-width: 640px) {
   @keyframes rotate-light {
@@ -51,21 +100,6 @@
       transform: translateX(-50%) rotate(0deg);
     }
   }
-
-  /* @keyframes rotate-bulb {
-    0% {
-      transform: rotate(0deg);
-    }
-    35% {
-      transform: rotate(-85deg);
-    }
-    70% {
-      transform: rotate(-45deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  } */
 }
 
 @media (prefers-reduced-motion) {
