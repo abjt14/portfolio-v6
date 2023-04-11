@@ -1,0 +1,73 @@
+@media screen and (min-width: 640px) {
+  .pill::after {
+    background-color: rgba(229, 229, 229, 1);
+    box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
+    transform: translateY(-50vh);
+    animation: pill-slide 2s cubic-bezier(0.87, 0, 0.13, 1) forwards, pill-pulse 60s cubic-bezier(0.87, 0, 0.13, 1) 4s infinite;
+  }
+
+  .aside::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 1px;
+    height: 100vh;
+    background: linear-gradient(to bottom, transparent, rgb(64, 64, 64) 0%, rgb(64, 64, 64) 90%, rgb(255, 255, 255) 100%);
+    background-position-y: -100vh;
+    background-repeat: no-repeat;
+    animation: border-slide-initial 2s cubic-bezier(0.87, 0, 0.13, 1) forwards, border-slide 60s linear 4s infinite, border-repeat 0s linear 2s forwards;
+  }
+
+  @keyframes border-slide-initial {
+    from {
+      background-position-y: -100vh;
+    }
+    to {
+      background-position-y: 0vh;
+    }
+  }
+
+  @keyframes border-slide {
+    from {
+      background-position-y: 0vh;
+    }
+    to {
+      background-position-y: 100vh;
+    }
+  }
+
+  @keyframes border-repeat {
+    to {
+      background-repeat: repeat-y;
+    }
+  }
+
+  @keyframes pill-slide {
+    from {
+      transform: translateY(-50vh);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pill-pulse {
+    0% {
+      background-color: rgba(229, 229, 229, 1);
+      box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
+    }
+    24% {
+      background-color: rgba(229, 229, 229, 1);
+      box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
+    }
+    27% {
+      background-color: rgba(255, 255, 255, 1);
+      box-shadow: 0 0 1.5rem 1px rgba(255, 255, 255, .7);
+    }
+    100% {
+      background-color: rgba(229, 229, 229, 1);
+      box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
+    }
+  }
+}
