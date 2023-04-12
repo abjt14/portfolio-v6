@@ -4,6 +4,13 @@
 
 :root, html, body {
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  --animation-delay-base: 1s;
 }
 
 ::selection {

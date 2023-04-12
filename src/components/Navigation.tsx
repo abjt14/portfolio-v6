@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from 'react';
 import styles from "@/styles/Navigation.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -33,6 +34,13 @@ export default function Navigation() {
     }
     return href.includes(path);
   }
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      document.documentElement.setAttribute('style', '--animation-delay-base: .25s !important');
+    }, 1500);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <aside className={clsx(

@@ -1,6 +1,6 @@
 .fadein {
-  opacity: 0;
-  animation: fade-in .5s ease forwards;
+  opacity: 0.001;
+  animation: fade-in .5s ease both;
 }
 
 .fadein:nth-of-type(1) {
@@ -21,7 +21,7 @@
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0.001;
     transform: translateY(.5rem);
   }
   to {
@@ -31,11 +31,16 @@
 }
 
 @media screen and (min-width: 640px) {
+  .pill, .pill::after, .aside::after {
+    --navigation-easing: cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
   .pill::after {
     background-color: rgba(229, 229, 229, 1);
     box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
     transform: translateY(-50vh);
-    animation: pill-slide 2s cubic-bezier(0.87, 0, 0.13, 1) forwards, pill-pulse 60s cubic-bezier(0.87, 0, 0.13, 1) 4s infinite;
+    transition: top .6s var(--navigation-easing);
+    animation: pill-slide 2s var(--navigation-easing) both, pill-pulse 60s var(--navigation-easing) 4s infinite;
   }
 
   .aside::after {
@@ -48,7 +53,7 @@
     background: linear-gradient(to bottom, transparent, rgb(64, 64, 64) 0%, rgb(64, 64, 64) 90%, rgb(255, 255, 255) 100%);
     background-position-y: -100vh;
     background-repeat: no-repeat;
-    animation: border-slide-initial 2s cubic-bezier(0.87, 0, 0.13, 1) forwards, border-slide 60s linear 4s infinite, border-repeat 0s linear 2s forwards;
+    animation: border-slide-initial 2s var(--navigation-easing) both, border-slide 60s linear 4s infinite, border-repeat 0s linear 2s both;
   }
 
   @keyframes border-slide-initial {
@@ -95,7 +100,7 @@
     }
     27% {
       background-color: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 1.5rem 1px rgba(255, 255, 255, .7);
+      box-shadow: 0 0 2rem 1px rgba(255, 255, 255, 1);
     }
     100% {
       background-color: rgba(229, 229, 229, 1);

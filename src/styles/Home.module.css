@@ -1,6 +1,6 @@
 .fadein {
   opacity: 0.001;
-  animation: fade-in .75s ease forwards;
+  animation: fade-in .75s ease both;
 }
 
 .fadein:nth-of-type(1) {
@@ -24,30 +24,34 @@
 }
 
 @media screen and (min-width: 640px) {
+  /* .fadein {
+    --animation-delay-base: 1s;
+  } */
+
   .fadein:nth-of-type(1) {
-    animation-delay: 1s;
+    animation-delay: calc(var(--animation-delay-base) + 0s);
   }
 
   .fadein:nth-of-type(2) {
-    animation-delay: 1.15s;
+    animation-delay: calc(var(--animation-delay-base) + 0.15s);
   }
 
   .fadein:nth-of-type(3) {
-    animation-delay: 1.3s;
+    animation-delay: calc(var(--animation-delay-base) + 0.3s);
   }
 
   .fadein:nth-of-type(4) {
-    animation-delay: 1.45s;
+    animation-delay: calc(var(--animation-delay-base) + 0.45s);
   }
 
   .fadein:nth-of-type(5) {
-    animation-delay: 1.6s;
+    animation-delay: calc(var(--animation-delay-base) + 0.6s);
   }
 }
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0.001;
     transform: translateY(.5rem);
   }
   to {
@@ -61,7 +65,7 @@
   border-top: 0;
   border-bottom: 70vh inset rgba(255, 255, 255, 1);
   transform: translateX(-50%) rotate(60deg);
-  animation: rotate-light 5s infinite 2.5s, light-fade-in 1s ease-out 2.5s forwards;
+  animation: rotate-light 5s infinite 2.5s, light-fade-in 1s ease-out 2.5s both;
 }
 
 @keyframes light-fade-in {
