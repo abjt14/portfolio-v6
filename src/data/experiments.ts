@@ -1,15 +1,15 @@
 export const experiments: Experiment[] = [
+  // {
+  //   "id": "endless-burrito",
+  //   "name": "Endless Burrito",
+  //   "type": "external",
+  //   "link": "https://github.com/abjt14/endless-burrito"
+  // },
   {
     "id": "bongo-copy-cat",
     "name": "Bongo Copy Cat",
     "type": "external",
     "link": "https://github.com/abjt14/bongo-copy-cat"
-  },
-  {
-    "id": "endless-burrito",
-    "name": "Endless Burrito",
-    "type": "external",
-    "link": "https://github.com/abjt14/endless-burrito"
   },
   {
     "id": "border-highlight",
