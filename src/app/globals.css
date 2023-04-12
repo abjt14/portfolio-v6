@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root, html, body {
-  overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,4 +14,10 @@ html {
 
 ::selection {
   @apply bg-gray-100 text-neutral-800;
+}
+
+@media screen and (max-width: 640px) {
+  :root, html, body {
+    overflow-x: hidden;
+  }
 }
