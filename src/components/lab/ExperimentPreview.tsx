@@ -18,7 +18,7 @@ export default function ExperimentPreview({experiment}: {experiment: processedDa
         style={{animationDelay: `calc(var(--animation-delay-lab) + ${experiment.animationDelay}s)`}}
       >
         <div className="video-container">
-          <video autoPlay muted playsInline loop className="rounded-md contrast-[1.075]" poster={`/videos/lab/${experiment.slug}/placeholder.jpg`}>
+          <video autoPlay muted playsInline loop className="rounded-md contrast-[1.075]" poster={`/videos/lab/${experiment.slug}/placeholder.jpg`} width={experiment.resolution.width} height={experiment.resolution.height}>
             <source src={`/videos/lab/${experiment.slug}/optimized.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
