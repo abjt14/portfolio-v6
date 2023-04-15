@@ -22,7 +22,7 @@ export default function Home() {
       <div className="flex flex-col items-start justify-start gap-4 text-neutral-500 text-lg sm:text-base">
         <p className={styles.fadein}>Crafting <span className="text-neutral-50">engaging experiences</span> for the Internet.</p>
         <p className={styles.fadein}>With a creative approach to development, I add intuitiveness and life to my work. Building beautiful interfaces and performant backend applications for professional, academic, and personal projects.</p>
-        <p className={styles.fadein}>When I&#39;m not busy writing code, I make digital artwork.</p>
+        <p className={styles.fadein}>Outside of programming, I enjoy making 3d renders and animations.</p>
       </div>
       <div className={clsx(
         "flex justify-between gap-8 w-max",
