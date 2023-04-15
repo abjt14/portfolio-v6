@@ -9,7 +9,9 @@
 }
 
 html {
-  --animation-delay-base: 1s;
+  --animation-delay-home: 1s;
+  --animation-delay-lab: 1s;
+  --animation-delay-writing: 1s;
 }
 
 ::selection {
