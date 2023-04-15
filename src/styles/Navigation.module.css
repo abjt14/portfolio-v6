@@ -94,11 +94,7 @@
       background-color: rgba(229, 229, 229, 1);
       box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
     }
-    24% {
-      background-color: rgba(229, 229, 229, 1);
-      box-shadow: 0 0 1rem 1px rgba(255, 255, 255, 0.35);
-    }
-    27% {
+    25% {
       background-color: rgba(255, 255, 255, 1);
       box-shadow: 0 0 2rem 1px rgba(255, 255, 255, 1);
     }
