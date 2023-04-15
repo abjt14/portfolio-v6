@@ -1,32 +1,41 @@
 export const experiments: Experiment[] = [
   // {
-  //   "id": "endless-burrito",
+  //   "slug": "endless-burrito",
   //   "name": "Endless Burrito",
+  //   "component": null,
   //   "type": "external",
   //   "link": "https://github.com/abjt14/endless-burrito"
   // },
   {
-    "id": "bongo-copy-cat",
+    "slug": "bongo-copy-cat",
     "name": "Bongo Copy Cat",
+    "component": null,
     "type": "external",
-    "link": "https://github.com/abjt14/bongo-copy-cat"
+    "link": "https://github.com/abjt14/bongo-copy-cat",
+    "source": "https://github.com/abjt14/bongo-copy-cat"
   },
   {
-    "id": "border-highlight",
+    "slug": "border-highlight",
     "name": "Border Highlight",
+    "component": "BorderHighlight",
     "type": "internal",
-    "link": "/lab/border-highlight"
+    "link": "/lab/border-highlight",
+    "source": "https://codepen.io/abjt14"
   },
   {
-    "id": "laser-progress-beam",
+    "slug": "laser-progress-beam",
     "name": "Laser Progress Beam",
+    "component": "LaserProgressBeam",
     "type": "internal",
-    "link": "/lab/laser-progress-beam"
+    "link": "/lab/laser-progress-beam",
+    "source": "https://codepen.io/abjt14"
   },
   {
-    "id": "searchlight",
+    "slug": "searchlight",
     "name": "Searchlight",
+    "component": "Searchlight",
     "type": "internal",
-    "link": "/lab/searchlight"
+    "link": "/lab/searchlight",
+    "source": "https://codepen.io/abjt14"
   },
 ];
