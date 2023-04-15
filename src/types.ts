@@ -5,4 +5,8 @@ interface Experiment {
   link: string;
   source: string;
   component: string | null;
+  resolution: {
+    width: number;
+    height: number;
+  }
 }

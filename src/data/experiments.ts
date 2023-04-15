@@ -12,7 +12,11 @@ export const experiments: Experiment[] = [
     "component": null,
     "type": "external",
     "link": "https://github.com/abjt14/bongo-copy-cat",
-    "source": "https://github.com/abjt14/bongo-copy-cat"
+    "source": "https://github.com/abjt14/bongo-copy-cat",
+    "resolution": {
+      "width": 1165,
+      "height": 720
+    },
   },
   {
     "slug": "border-highlight",
@@ -20,7 +24,11 @@ export const experiments: Experiment[] = [
     "component": "BorderHighlight",
     "type": "internal",
     "link": "/lab/border-highlight",
-    "source": "https://codepen.io/abjt14"
+    "source": "https://codepen.io/abjt14",
+    "resolution": {
+      "width": 720,
+      "height": 720
+    },
   },
   {
     "slug": "laser-progress-beam",
@@ -28,7 +36,11 @@ export const experiments: Experiment[] = [
     "component": "LaserProgressBeam",
     "type": "internal",
     "link": "/lab/laser-progress-beam",
-    "source": "https://codepen.io/abjt14"
+    "source": "https://codepen.io/abjt14",
+    "resolution": {
+      "width": 1280,
+      "height": 640
+    },
   },
   {
     "slug": "searchlight",
@@ -36,6 +48,10 @@ export const experiments: Experiment[] = [
     "component": "Searchlight",
     "type": "internal",
     "link": "/lab/searchlight",
-    "source": "https://codepen.io/abjt14"
+    "source": "https://codepen.io/abjt14",
+    "resolution": {
+      "width": 960,
+      "height": 720
+    },
   },
 ];
