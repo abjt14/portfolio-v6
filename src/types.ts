@@ -1,6 +1,8 @@
 interface Experiment {
-  id: string;
+  slug: string;
   name: string;
   type: 'internal' | 'external';
   link: string;
+  source: string;
+  component: string | null;
 }
