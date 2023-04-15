@@ -84,7 +84,7 @@ export default function Navigation() {
           <ul className="relative flex gap-6 justify-start items-center sm:flex-col sm:gap-0 sm:items-end sm:justify-between">
             {links.map(({ href, label, type }, index) => (
               <li key={index} className={clsx(
-                "relative w-full py-0 sm:py-1 sm:first:pt-0 sm:last:pb-0",
+                "relative w-max sm:w-full py-0 sm:py-1 sm:first:pt-0 sm:last:pb-0",
                 styles.fadein
               )}>
                 <Link
