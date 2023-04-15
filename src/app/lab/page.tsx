@@ -1,7 +1,6 @@
 'use client';
 
 import { experiments } from "@/data/experiments";
-import clsx from "clsx";
 import useWindowWidth from "@/components/hooks/useWindowWidth";
 import ExperimentPreview from "@/components/lab/ExperimentPreview";
 
