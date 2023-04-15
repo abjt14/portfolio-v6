@@ -16,7 +16,7 @@
 
 .showcase {
   transform: scale(0);
-  animation: showcase .75s cubic-bezier(0, 1, 0, 1.01) both;
+  animation: showcase .75s cubic-bezier(0, 1, 0, 1.015) both;
 }
 
 .showcase::after {
@@ -29,7 +29,9 @@
   z-index: 100;
   background: rgba(0, 0, 0, 1);
   opacity: 1;
-  pointer-events: none;}
+  pointer-events: none;
+  animation: showcase-fadeout .75s ease both calc(var(--animation-delay-lab) + 0.5s);
+}
 
 @keyframes showcase {
   0% {
@@ -38,5 +40,14 @@
 
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes showcase-fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
