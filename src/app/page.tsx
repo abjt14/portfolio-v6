@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 export default function Home() {
   return (
-    <main className="flex-1 flex flex-col gap-8 items-start justify-start max-w-xl sm:pt-[7.825rem]">
+    <main className="flex-1 flex flex-col gap-8 items-start justify-start max-w-screen-md sm:pt-[7.825rem]">
       <div className="relative">
         <div className="relative">
           <div id="light" className={clsx(
