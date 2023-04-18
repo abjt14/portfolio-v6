@@ -22,4 +22,70 @@ html {
   :root, html, body {
     overflow-x: hidden;
   }
+
+  html {
+    --animation-delay-home: 0s;
+    --animation-delay-lab: 0s;
+    --animation-delay-writing: 0s;
+  }
 }
+
+/* mdx articles */
+
+article > [data-rehype-pretty-code-fragment] pre {
+  @apply p-4 bg-neutral-950 rounded-b-md text-sm overflow-auto border-x border-b border-neutral-900;
+}
+
+article > [data-rehype-pretty-code-fragment] pre code {
+  @apply grayscale contrast-200;
+}
+
+article > [data-rehype-pretty-code-fragment] [data-rehype-pretty-code-title] {
+  @apply text-neutral-400 text-sm font-mono bg-neutral-1000 py-1 px-4 rounded-t-md border-x border-t border-neutral-900;
+}
+
+article > p > code {
+  @apply text-sm bg-neutral-950 text-neutral-200 px-2 py-[.0625rem] rounded-md border border-neutral-900;
+}
+
+article > p > a {
+  @apply text-neutral-50 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150;
+}
+
+article > p > strong {
+  @apply text-neutral-50 font-normal;
+}
+
+article > h1, article > h2, article > h3, article > h4, article > h5, article > h6 {
+  @apply text-neutral-50 font-semibold mt-4;
+}
+
+article > h1 {
+  @apply text-2xl;
+}
+
+article > h2 {
+  @apply text-xl;
+}
+
+article ul {
+  @apply list-disc ml-4 max-w-screen-sm;
+}
+
+article ol {
+  @apply list-decimal ml-4 max-w-screen-sm;
+}
+
+article ul li {
+  @apply text-neutral-50 pb-2 pl-2;
+}
+
+article ol li {
+  @apply text-neutral-50 pb-2 pl-2;
+}
+
+article h1 a, article h2 a, article h3 a, article h4 a, article h5 a, article h6 a {
+  /* @apply ; */
+}
+
+/* mdx articles end */
