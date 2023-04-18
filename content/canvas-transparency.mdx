@@ -1,0 +1,78 @@
+---
+title: 'Calculating Transparency of an HTML5 Canvas'
+publishedAt: '2023-03-16'
+summary: 'A simple method to calculate canvas transparency in JavaScript'
+---
+
+Alright let's get back to basics here. HTML5 Canvas is very versatile and capable of both 2d and 3d graphics. It is used abundantly in the eye-candy websites featured on [awwwards](https://www.awwwards.com/) and [siteinspire](https://www.siteinspire.com/).
+
+While building one of my older [portfolio websites](https://portfolio-v4-abjt14.vercel.app/), I built a drawable background that auto-fills once half the Canvas has been drawn on. In order to make this work, I had to calculate the transparency percentage of the Canvas.
+
+_You wouldn't believe how simple this can be._
+
+For this article, we'll need to:
+
+1. Create A Canvas
+2. Draw A Shape
+3. Calculate Transparency
+
+Alright onto **Step 1**. Let's create a basic HTML Canvas.
+
+```html title="html"
+<canvas height="500" width="500"/>
+```
+
+We're already at **Step 2?**
+
+```javascript title="js"
+// get the context
+const canvas = document.querySelector("canvas");
+const context = canvas.getContext("2d");
+
+// add a shape
+context.fillStyle = "#000000";
+context.fillRect(0, 0, canvas.height/2, canvas.width/2);
+```
+
+
+**Step 3.** Finally we get to write some logic.
+
+```javascript title="js"
+// retrieving image data
+const imageData = context.getImageData(0, 0, canvas.width, canvas.height).data;
+```
+Let's check the `imageData` values.
+```javascript title="js"
+console.log('imageData', imageData);
+
+// we get the following array of 1000000 values
+// [0, 0, 0, 255, 0, 0, 0, 255............, 1, 1, 1, 255, 1, 1, 1, 255]
+```
+As you might have guessed, these are `rgba` values of each pixel in the canvas, defining the Red, Green, Blue, and Alpha (transparency) values respectively. Each value ranges from `0` to `255`.
+
+What we have to focus on here, is the Alpha values. So let's isolate them.
+```javascript title="js"
+// removing every non-4th value (rgb values)
+let alphaValues = imageData.filter((value, index) => index % 4 === (4 - 1));
+```
+
+The method to calculate transparency is pretty simple, we just need the transparent pixels and the total pixel count.
+```javascript title="js"
+// reworking the filter to remove non-zero alpha values as well
+let alphaValues = imageData.filter((value, index) => index % 4 === (4 - 1) && value === 0);
+
+// get the maximum pixel count
+const maxPixels = canvas.width * canvas.height;
+```
+
+Now for the finale, let's calculate the transparency ratio and convert it to a percentage.
+```javascript title="js"
+// tada!
+const percentage = (alphaValues.length / maxPixels) * 100;
+
+// a good old fashioned console.log()
+console.log(`${percentage}%`);
+// "75%"
+```
+
+_That's all folks, told ya it was simple._

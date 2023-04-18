@@ -1,0 +1,161 @@
+---
+title: 'The Story of Bongo Copy Cat'
+publishedAt: '2023-01-25'
+summary: 'A Tauri Cat that wants to be involved in everything you do 👨‍💻👩‍💻'
+image: 'https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9omordcikzf2cvrglmny.gif'
+---
+
+**Bongo Copy Cat** wants to be involved in everything you do but instead just imitates you hitting your keyboard all day. After all it's just a cat 🐈.
+
+I am new to [Rust](https://www.rust-lang.org/), and this is my first project built using the awesome programming language.
+
+Check out the project on [Github](https://github.com/abjt14/bongo-copy-cat). The documentation includes the _executables_ and as well as instructions on building it locally.
+
+## Dilemma
+
+So here's the story. I decided to learn **Rust**, read the [docs](https://doc.rust-lang.org/book/), solved the [rustlings](https://github.com/rust-lang/rustlings) challenges. The next step in learning a new programming language is to build something with it. And so began my dilemma.
+
+I can always build a simple todo app, a calculator, or something more [challenging](https://github.com/codecrafters-io/build-your-own-x). But I am a creative, the urge to build something unique is too strong. And so I started brainstorming ideas.
+
+## Inspiration
+
+A few weeks go by, I move on to my art projects while taking time out to find something fun to build with Rust. I know I know, this is not going good.
+
+One night, as I was scrolling through Instagram, watching videos of cats, procrastinating going to sleep, I found my project.
+
+There was a video of a lady explaining how she stopped her cat from sitting on her laptop while she works from home. She claimed that cats want to copy you, be involved in what you do, so how about we give the cat a laptop? She got her cat a mini toy laptop and it worked! While the lady was busy striking the keys on her laptop, the cat played with the toy pretending to work.
+
+And so I thought, what if the [Bongo Cat](https://knowyourmeme.com/memes/bongo-cat) copied me working on my laptop.
+
+## Research
+
+First things first, I made a list of the requirements.
+
+- A Rust based global input listener that can listen to the keyboard events even if the app window _isn't in focus_.
+- A cross-platform Rust framework so I can target multiple platforms.
+- An app to draw the cat meme.
+
+I expected my research to find a Rust based `global input listener` to lead me to Stack Overflow, instead I found my answers on Reddit.
+
+The two `crates` I found that worked for my use-case were [Rdev](https://github.com/Narsil/rdev) and [InputBot](https://github.com/obv-mikhail/InputBot).
+
+[Tauri](https://tauri.app/) was the obvious choice for the cross platform application. With `57.3K` stars on Github and growing, it is a framework loved by the community. It combines your favourite frontend frameworks with a Rust backend to build _"smaller, faster, and more secure desktop applications"_.
+
+Lastly, I wanted a drawing app for my simple use-case. Since I love open source projects, I chose [Krita](https://krita.org/en/). It may be an overkill, but I have wanted to learn the application for a while to use in my art projects.
+
+## Challenges
+
+`Rdev` supports Window, MacOS, and Linux, but `InputBot` only supports Windows and Linux. Since I develop on a Mac OS system, I tested `Rdev` first.
+
+Both libraries had partial support for linux and I had trouble getting them to work in my Tauri project. So I skipped building the app for linux.
+
+The next hurdle I ran into was the `global event listener` library itself. The GitHub documentation of `Rdev` mentions a few OS specific caveats in addition to the fact that the `listener` is **blocking**.
+
+```rust title="rust"
+use rdev::{listen, Event};
+
+// This will block.
+if let Err(error) = listen(callback) {
+  println!("Error: {:?}", error)
+}
+
+fn callback(event: Event) {
+  println!("My callback {:?}", event);
+  match event.name {
+    Some(string) => println!("User wrote {:?}", string),
+    None => (),
+  }
+}
+```
+
+While it was easy to get it working as a standalone Rust program, running the loop blocked **Tauri** from building the application.
+
+After a ton of research and testing, I found that one way to make it work was to use the loop inside a `tauri::command` that can be **invoked** from the frontend once the application has loaded.
+
+Here I define the `tauri::command`.
+
+```rust title="rust"
+#[tauri::command]
+fn listener(window: Window) {
+  let emit_event = move || {
+    if let Err(error) = window.eval("document.querySelector('button').click()") {
+      println!("Error: {:?}", error)
+    };
+  };
+
+  let callback = move |event: Event| {
+    match event.name {
+      Some(_string) => emit_event(),
+      None => (),
+    }
+  };
+
+  if let Err(error) = listen(callback) {
+    println!("Error: {:?}", error)
+  }
+}
+```
+We need to use a `Closure Function` of the following form if we want to capture `variables` inside an inner function. For more details on why we have to do this, check out this answer on [Stack Overflow](https://stackoverflow.com/a/54367316).
+
+```rust title="rust"
+let closure_fn = | args | -> () { do stuff };
+```
+
+In order to communicate with the frontend, I used the `window.eval()` function to click on an `HTML` button I have in my `index.html` file.
+
+Now that my app was running on Mac OS, I decided to test it on Windows. Unfortunately, as soon as the application launched, it crashed. After some testing, I figured out that the `listener` is blocking **Tauri** from running the app.
+
+I tried using `multithreading` to prevent the `listener` from blocking but it didn't work. Since I couldn't figure out how to fix this, I decided to test the other library called `InputBot`.
+
+The Github repository for the library has an example code snippet to bind all keys to the listener. Since this function wasn't blocking, it worked seamlessly without any issues.
+
+Separating the `dependencies` and `imports` based on the operating system was pretty easy as it is supported by Rust out of the box.
+
+In `cargo.toml`, I defined the `conditional dependencies` like this:
+```toml title="toml"
+[target.'cfg(windows)'.dependencies]
+inputbot = { git = "https://github.com/obv-mikhail/InputBot", branch = "develop" }
+
+[target.'cfg(unix)'.dependencies]
+rdev = "0.5.2"
+```
+
+And in my `main.rs` file, I used `conditional imports` and `functions` like this:
+```rust title="rust"
+#[cfg(target_os = "macos")]
+use rdev::{listen, Event};
+
+#[cfg(target_os = "windows")]
+use inputbot::KeybdKey;
+
+#[cfg(target_os = "macos")]
+#[tauri::command]
+fn listener(window: Window) {
+  // code using "rdev"
+}
+
+#[cfg(target_os = "windows")]
+#[tauri::command]
+fn listener(window: Window) {
+  // code using "inputBot"
+}
+```
+
+Lastly, the Tauri docs made it really easy to setup a Github Workflow to automate release builds. It's plug and play. Kudos to the contributors.
+
+## Wrap Up
+
+Here's the app in action.
+_add image here_
+
+[Rust](https://www.rust-lang.org/) is awesome. I find "fixing bugs and issues" to be a great way to learn a new language/library/framework. The **rust compiler** makes you a better developer, allowing you to use good programming habits in other languages as well. Learning Rust means practice, practice, practice. And I'm gonna do just that.
+
+Github Workflows is a lot simpler than I thought. I assumed it to have complicated code and low community support. I couldn't have been more wrong.
+
+[Tauri](https://tauri.app/) is an solid framework with a bright future. I know I have only scratched the surface here, but I look forward to building more complex applications in future.
+
+For developers new to Rust, please understand that the one thing that makes the language difficult to learn is the approach it takes towards coding. Take your time to understand the system. It makes you a better developer, allowing you to use good programming habits in other languages as well.
+
+I commend the Rust community and all the **Rustaceans** for creating such an amazing ecosystem.
+
+*Thank you for reading ❤️*
