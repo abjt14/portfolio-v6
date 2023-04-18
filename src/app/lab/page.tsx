@@ -10,7 +10,7 @@ export default function Experiments() {
   const width: number = useWindowWidth();
 
   return (
-    <section className="flex-1 max-w-screen-md sm:pt-[12.25rem] flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-1">
+    <section className="sm:pt-[12.25rem] flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-1">
       {width !== 0 && (
         width >= 768 ? <TwoColumn data={data} /> : <OneColumn data={data} />
       )}

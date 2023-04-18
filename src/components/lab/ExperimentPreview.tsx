@@ -1,6 +1,6 @@
+import styles from "@/styles/Lab.module.css";
 import clsx from "clsx";
 import Link from "next/link";
-import styles from "@/styles/Lab.module.css";
 
 interface processedData extends Experiment {
   animationDelay: number;

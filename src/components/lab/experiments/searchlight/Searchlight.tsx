@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-import styles from './Searchlight.module.css';
+import styles from '@/components/lab/experiments/searchlight/Searchlight.module.css';
 
 export default function Searchlight() {
   return (
@@ -9,7 +8,7 @@ export default function Searchlight() {
           <div className={styles.bulb}>❘</div>
         </div>
         <div className={styles.light}></div>
-        <div className={styles.textbox}>You can't be a lighthouse when you're underwater yourself.</div>
+        <div className={styles.textbox}>You can&rsquo;t be a lighthouse when you&rsquo;re underwater yourself.</div>
       </div>
     </div>
   )

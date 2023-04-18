@@ -1,4 +1,4 @@
-import styles from './BorderHighlight.module.css';
+import styles from '@/components/lab/experiments/border-hightlight/BorderHighlight.module.css';
 
 export default function BorderHighlight() {
   return (

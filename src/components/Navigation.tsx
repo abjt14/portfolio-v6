@@ -70,7 +70,7 @@ export default function Navigation() {
       styles.aside
     )}>
       <div className={clsx(
-        "sm:relative sm:pl-8 sm:pt-[12.25rem] sm:after:will-change-auto sm:h-full",
+        "sm:relative sm:pt-[12rem] sm:after:will-change-auto sm:h-full",
         styles.aside
       )}>
         <nav className={clsx(
