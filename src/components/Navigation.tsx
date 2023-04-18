@@ -95,13 +95,17 @@ export default function Navigation() {
                     "flex gap-1 justify-end items-center lowercase nav-link text-base font-kaiseiTokumin transition-all duration-150 will-change-auto hover:text-neutral-50 group"
                   )}
                 >
-                  <span className={clsx(
-                    "hidden sm:inline text-neutral-700 opacity-0 transition-all duration-300",
-                    isActive(href) &&
-                    ((path.includes(links[1].href) && path !== "/lab") ||
-                    (path.includes(links[2].href) && path !== "/writing")) &&
-                    "opacity-100 group-hover:text-neutral-50"
-                  )}>back to </span>
+                  {(href === links[1].href || href === links[2].href) ?
+                    (
+                      <span className={clsx(
+                        "hidden sm:inline text-neutral-500 opacity-0 transition-all duration-300 whitespace-nowrap",
+                        isActive(href) &&
+                        ((path.includes(links[1].href) && path !== "/lab") ||
+                        (path.includes(links[2].href) && path !== "/writing")) &&
+                        "opacity-100 group-hover:text-neutral-50"
+                      )}>back to </span>
+                    ) : null
+                  }
 
                   {type === "external" && (
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none" className="w-6 h-6 pt-1 relative -right-1">
