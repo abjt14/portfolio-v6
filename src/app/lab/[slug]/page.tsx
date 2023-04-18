@@ -1,7 +1,8 @@
+import styles from "@/styles/Experiment.module.css";
 import ExperimentExport from "@/components/lab/experiments/ExperimentExport";
 import { experiments } from "@/data/experiments";
-import styles from "@/styles/Experiment.module.css";
 import clsx from "clsx";
+import Link from "next/link";
 
 export function generateStaticParams() {
   const data = experiments.map((experiment) => ({
@@ -17,11 +18,14 @@ export default function Experiment({ params }: {
   params: Experiment;
 }) {
   const experiment = experiments.find((experiment) => experiment.slug === params.slug);
+  const index = experiments.findIndex((experiment) => experiment.slug === params.slug);
+  const prev = (experiments[index + 1] && experiments[index + 1].type) === "internal" ? experiments[index + 1] : null;
+  const next = (experiments[index - 1] && experiments[index - 1].type) === "internal" ? experiments[index - 1] : null;
 
   return(
     <>
       {experiment ? (
-        <section className="flex-1 max-w-full sm:max-w-xl sm:pt-[7.5rem] flex flex-col gap-8 items-start justify-start">
+        <section className="w-full sm:pt-[7.5rem] flex flex-col gap-8 items-start justify-start">
           <div className="flex justify-between items-center gap-8 w-full">
             <div className="flex flex-col gap-1">
               <h1
@@ -71,6 +75,28 @@ export default function Experiment({ params }: {
             }}
           >
             <ExperimentExport slug={experiment.slug} />
+          </div>
+          <div
+            className={clsx(
+              "flex justify-between items-center gap-8 w-full",
+              styles.fadein
+            )}
+            style={{
+              animationDelay: `calc(var(--animation-delay-lab) + 0.3s)`,
+            }}
+          >
+            {prev ? (
+              <Link href={`/lab/${prev.slug}`} className="flex flex-col gap-1 text-left">
+                <p className="text-xs text-neutral-500">Previous</p>
+                <h2 className="text-sm text-neutral-50">{prev.name}</h2>
+              </Link>
+            ) : null}
+            {next ? (
+              <Link href={`/lab/${next.slug}`} className="flex flex-col gap-1 text-right">
+                <p className="text-xs text-neutral-500">Next</p>
+                <h2 className="text-sm text-neutral-50">{next.name}</h2>
+              </Link>
+            ) : null}
           </div>
         </section>
       ) : null}
