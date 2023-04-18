@@ -14,6 +14,6 @@ export default function ExperimentExport({ slug }: { slug: string }) {
     case "searchlight":
       return <Searchlight />;
     default:
-      return <p>Could not find the requested component</p>;
+      return <p>Could not find the requested experiment.</p>;
   }
 }

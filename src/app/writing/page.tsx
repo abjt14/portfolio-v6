@@ -4,6 +4,12 @@ import { format } from 'date-fns';
 import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Writing',
+  description: 'Thoughts, ideas, and stories from my journey as a developer.',
+};
 
 const CrypticTextDynamic = dynamic(() => import('@/components/writing/CrypticText'), {
   ssr: false,
