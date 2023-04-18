@@ -7,15 +7,15 @@ image: 'https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9omordcikzf2cvr
 
 **Bongo Copy Cat** wants to be involved in everything you do but instead just imitates you hitting your keyboard all day. After all it's just a cat 🐈.
 
-I am new to [Rust](https://www.rust-lang.org/), and this is my first project built using the awesome programming language.
+I am new to <Link href="https://www.rust-lang.org/">Rust</Link>, and this is my first project built using the awesome programming language.
 
-Check out the project on [Github](https://github.com/abjt14/bongo-copy-cat). The documentation includes the _executables_ and as well as instructions on building it locally.
+Check out the project on <Link href="https://github.com/abjt14/bongo-copy-cat">Github</Link>. The documentation includes the _executables_ and as well as instructions on building it locally.
 
 ## Dilemma
 
-So here's the story. I decided to learn **Rust**, read the [docs](https://doc.rust-lang.org/book/), solved the [rustlings](https://github.com/rust-lang/rustlings) challenges. The next step in learning a new programming language is to build something with it. And so began my dilemma.
+So here's the story. I decided to learn **Rust**, read the <Link href="https://doc.rust-lang.org/book/">docs</Link>, solved the <Link href="https://github.com/rust-lang/rustlings">rustlings</Link> challenges. The next step in learning a new programming language is to build something with it. And so began my dilemma.
 
-I can always build a simple todo app, a calculator, or something more [challenging](https://github.com/codecrafters-io/build-your-own-x). But I am a creative, the urge to build something unique is too strong. And so I started brainstorming ideas.
+I can always build a simple todo app, a calculator, or something more <Link href="https://github.com/codecrafters-io/build-your-own-x">challenging</Link>. But I am a creative, the urge to build something unique is too strong. And so I started brainstorming ideas.
 
 ## Inspiration
 
@@ -25,7 +25,7 @@ One night, as I was scrolling through Instagram, watching videos of cats, procra
 
 There was a video of a lady explaining how she stopped her cat from sitting on her laptop while she works from home. She claimed that cats want to copy you, be involved in what you do, so how about we give the cat a laptop? She got her cat a mini toy laptop and it worked! While the lady was busy striking the keys on her laptop, the cat played with the toy pretending to work.
 
-And so I thought, what if the [Bongo Cat](https://knowyourmeme.com/memes/bongo-cat) copied me working on my laptop.
+And so I thought, what if the <Link href="https://knowyourmeme.com/memes/bongo-cat">Bongo Cat</Link> copied me working on my laptop.
 
 ## Research
 
@@ -37,11 +37,11 @@ First things first, I made a list of the requirements.
 
 I expected my research to find a Rust based `global input listener` to lead me to Stack Overflow, instead I found my answers on Reddit.
 
-The two `crates` I found that worked for my use-case were [Rdev](https://github.com/Narsil/rdev) and [InputBot](https://github.com/obv-mikhail/InputBot).
+The two `crates` I found that worked for my use-case were <Link href="https://github.com/Narsil/rdev">Rdev</Link> and <Link href="https://github.com/obv-mikhail/InputBot">InputBot</Link>.
 
-[Tauri](https://tauri.app/) was the obvious choice for the cross platform application. With `57.3K` stars on Github and growing, it is a framework loved by the community. It combines your favourite frontend frameworks with a Rust backend to build _"smaller, faster, and more secure desktop applications"_.
+<Link href="https://tauri.app/">Tauri</Link> was the obvious choice for the cross platform application. With `57.3K` stars on Github and growing, it is a framework loved by the community. It combines your favourite frontend frameworks with a Rust backend to build _"smaller, faster, and more secure desktop applications"_.
 
-Lastly, I wanted a drawing app for my simple use-case. Since I love open source projects, I chose [Krita](https://krita.org/en/). It may be an overkill, but I have wanted to learn the application for a while to use in my art projects.
+Lastly, I wanted a drawing app for my simple use-case. Since I love open source projects, I chose <Link href="https://krita.org/en/">Krita</Link> It may be an overkill, but I have wanted to learn the application for a while to use in my art projects.
 
 ## Challenges
 
@@ -95,7 +95,7 @@ fn listener(window: Window) {
   }
 }
 ```
-We need to use a `Closure Function` of the following form if we want to capture `variables` inside an inner function. For more details on why we have to do this, check out this answer on [Stack Overflow](https://stackoverflow.com/a/54367316).
+We need to use a `Closure Function` of the following form if we want to capture `variables` inside an inner function. For more details on why we have to do this, check out this answer on <Link href="https://stackoverflow.com/a/54367316">Stack Overflow</Link>.
 
 ```rust title="rust"
 let closure_fn = | args | -> () { do stuff };
@@ -148,13 +148,13 @@ Lastly, the Tauri docs made it really easy to setup a Github Workflow to automat
 Here's the app in action.
 _add image here_
 
-[Rust](https://www.rust-lang.org/) is awesome. I find "fixing bugs and issues" to be a great way to learn a new language/library/framework. The **rust compiler** makes you a better developer, allowing you to use good programming habits in other languages as well. Learning Rust means practice, practice, practice. And I'm gonna do just that.
+<Link href="https://www.rust-lang.org/">Rust</Link> is awesome. I find "fixing bugs and issues" to be a great way to learn a new language, library, or framework. The **rust compiler** makes you a better developer, allowing you to use good programming habits in other languages as well. Learning Rust means practice, practice, practice. And I'm gonna do just that.
 
 Github Workflows is a lot simpler than I thought. I assumed it to have complicated code and low community support. I couldn't have been more wrong.
 
-[Tauri](https://tauri.app/) is an solid framework with a bright future. I know I have only scratched the surface here, but I look forward to building more complex applications in future.
+<Link href="https://tauri.app/">Tauri</Link> is an solid framework with a bright future. I know I have only scratched the surface here, but I look forward to building more complex applications in future.
 
-For developers new to Rust, please understand that the one thing that makes the language difficult to learn is the approach it takes towards coding. Take your time to understand the system. It makes you a better developer, allowing you to use good programming habits in other languages as well.
+For developers new to Rust, please understand that the one thing that makes the language difficult to learn is the approach it takes towards coding. Take your time to understand the system. It makes you a better developer, allowing you to transfer good programming habits to other languages as well.
 
 I commend the Rust community and all the **Rustaceans** for creating such an amazing ecosystem.
 

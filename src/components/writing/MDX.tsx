@@ -1,13 +1,36 @@
 import Image, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import Link from 'next/link';
 
 function CustomImage(props: ImageProps) {
-  // eslint-disable-next-line jsx-a11y/alt-text
-  return <Image {...props} />;
+  const { alt, ...rest } = props;
+  return <Image alt={alt} {...rest} />;
 }
+
+const CustomLink = (props: {
+  href: string;
+  children: React.ReactNode;
+}) => {
+  const href = props.href as string;
+
+  if (href.startsWith('/')) {
+    return (
+      <Link {...props} className="text-neutral-200 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150">
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith('#')) {
+    return <a {...props} />;
+  }
+
+  return <a target="_blank" rel="noopener noreferrer" {...props} className="text-neutral-200 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150" />;
+};
 
 const components = {
   Image: CustomImage,
+  Link: CustomLink
 };
 
 interface MDXProps {
