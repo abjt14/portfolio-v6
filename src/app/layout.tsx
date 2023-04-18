@@ -1,19 +1,47 @@
 import './globals.css';
 import Navigation from '@/components/Navigation';
-import { Kaisei_Tokumin } from 'next/font/google';
 import clsx from 'clsx';
+import localFont from 'next/font/local';
 
-const kaiseiTokumin = Kaisei_Tokumin({
+const kaiseiTokumin = localFont({
+  src: '../../public/fonts/kaisei-tokumin-latin-700-normal.woff2',
   weight: '700',
   variable: '--font-kaisei',
   display: 'swap',
-  subsets: ['latin'],
-  style: ['normal']
 });
 
 export const metadata = {
-  title: 'abjt . web developer . digital artist',
+  title: {
+    default: 'abjt . web developer . digital artist',
+    template: '%s | abjt . web developer . digital artist'
+  },
   description: 'Crafting engaging experiences for the internet.',
+  openGraph: {
+    title: 'abjt . web developer . digital artist',
+    description: 'Crafting engaging experiences for the internet.',
+    url: 'https://abjt.dev/',
+    locale: 'en_IE',
+    type: 'website'
+  },
+  twitter: {
+    title: 'abjt . web developer . digital artist',
+    description: 'Crafting engaging experiences for the internet.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
