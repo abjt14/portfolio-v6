@@ -8,17 +8,23 @@ export default function CrypticText({ text }: { text: string }) {
 
   useEffect(() => {
     const letters = "abcdefghijklmnopqrst1234567890                  ";
+    const animationDelayFactor = 0.5;
+    const repeatDivider = 4;
 
     const timeoutValue = parseInt(
       getComputedStyle(document.documentElement)
       .getPropertyValue('--animation-delay-writing')
       .replace('s', '')
-    ) * 500;
+    ) * 30 * animationDelayFactor;
 
     let iteration = 0;
+    let elapsed = 0;
+    let animation: number;
 
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
+    function animate() {
+      elapsed++;
+
+      if ((elapsed > timeoutValue) && (elapsed % repeatDivider === 0)) {
         let encryption = text
           .split("")
           .map((letter, index) => {
@@ -28,18 +34,23 @@ export default function CrypticText({ text }: { text: string }) {
             return letters[Math.floor(Math.random() * 26)]
           })
           .join("");
+
         if(iteration >= text.length){
-          clearInterval(interval);
+          cancelAnimationFrame(animation);
         }
         iteration += text.length * .04;
 
         setCryptic(encryption);
-      }, 50);
 
-      return () => clearInterval(interval);
-    }, timeoutValue);
+        iteration++;
+      }
 
-    return () => clearInterval(timeout);
+      animation = requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    return () => cancelAnimationFrame(animation);
   }, [text]);
 
   return (
