@@ -12,18 +12,18 @@ export default function ExperimentPreview({experiment}: {experiment: processedDa
       <div
         className={clsx(
           "relative rounded-md bg-neutral-950 border border-neutral-900 p-1 overflow-hidden group",
-          "after:content-[''] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:from-50% after:to-black after:z-10 after:pointer-events-none after:transition-all after:duration-300",
+          "after:content-[''] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:from-50% after:to-black after:z-10 after:pointer-events-none after:transition-all after:duration-300 after:will-change-auto",
           styles.fadein
         )}
         style={{animationDelay: `calc(var(--animation-delay-lab) + ${experiment.animationDelay}s)`}}
       >
         <div className="video-container">
-          <video autoPlay muted playsInline loop className="rounded-md contrast-[1.075]" poster={`/videos/lab/${experiment.slug}/placeholder.jpg`} width={experiment.resolution.width} height={experiment.resolution.height}>
+          <video autoPlay muted playsInline loop className="rounded-md contrast-[1.075]" poster={`/videos/lab/${experiment.slug}/placeholder.webp`} width={experiment.resolution.width} height={experiment.resolution.height}>
             <source src={`/videos/lab/${experiment.slug}/optimized.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-full flex justify-between items-end gap-4 p-3 z-20 transition-opacity duration-300">
+        <div className="absolute bottom-0 left-0 w-full h-full flex justify-between items-end gap-4 p-3 z-20 transition-opacity duration-300 will-change-auto">
           <h3 className="text-xs text-neutral-300 flex gap-1 justify-start items-center">
             {experiment.name}
             {experiment.type === "external" && (
@@ -32,7 +32,7 @@ export default function ExperimentPreview({experiment}: {experiment: processedDa
               </svg>
             )}
           </h3>
-          <p className="text-xs text-neutral-500">March 2023</p>
+          <p className="text-xs text-neutral-500">{experiment.date}</p>
         </div>
       </div>
     </Link>

@@ -8,5 +8,6 @@ interface Experiment {
   resolution: {
     width: number;
     height: number;
-  }
+  },
+  date: string;
 }
