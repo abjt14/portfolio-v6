@@ -17,7 +17,7 @@ const CrypticTextDynamic = dynamic(() => import('@/components/writing/CrypticTex
 
 export default function Writing() {
   return (
-    <section className="sm:pt-[12.05rem] flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-1">
+    <section className="sm:pt-[12.05rem] flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-1 sm:basis-3/4">
       <div className="flex-1 flex flex-col gap-5">
         {
           allArticles

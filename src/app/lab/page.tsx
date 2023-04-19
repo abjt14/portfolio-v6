@@ -11,7 +11,7 @@ const data = experiments.reverse();
 
 export default function Experiments() {
   return (
-    <section className="sm:py-[12.25rem]">
+    <section className="sm:py-[12.25rem] sm:basis-3/4">
       <OneColumn data={data} />
       <TwoColumn data={data} />
     </section>

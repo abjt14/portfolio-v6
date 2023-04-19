@@ -43,7 +43,7 @@ export default function Article({ params } : { params: { slug: string } }) {
   }
 
   return (
-    <section className="flex flex-col gap-8 sm:py-[6.05rem] text-neutral-400">
+    <section className="flex flex-col gap-8 sm:py-[6.05rem] text-neutral-400 sm:basis-3/4">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl text-neutral-50 font-kaiseiTokumin">{article.title}</h1>
         <div className="flex gap-2 justify-start items-baseline text-sm text-neutral-500">

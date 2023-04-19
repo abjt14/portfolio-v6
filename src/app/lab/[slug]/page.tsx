@@ -54,7 +54,7 @@ export default function Experiment({ params }: {
   return(
     <>
       {experiment ? (
-        <section className="lg:w-3/5 sm:pt-[7.5rem] flex flex-col gap-8 items-start justify-start">
+        <section className="sm:pt-[7.5rem] flex flex-col gap-8 items-start justify-start sm:basis-3/4">
           <div className="flex justify-between items-center gap-8 w-full">
             <div className="flex flex-col gap-1">
               <h1

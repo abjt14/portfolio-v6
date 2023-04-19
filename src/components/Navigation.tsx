@@ -66,7 +66,7 @@ export default function Navigation() {
 
   return (
     <aside className={clsx(
-      "sm:sticky sm:top-0 sm:z-20 sm:h-screen",
+      "sm:sticky sm:top-0 sm:z-20 sm:h-screen sm:basis-1/5",
       styles.aside
     )}>
       <div className={clsx(
