@@ -7,6 +7,15 @@ function CustomImage(props: ImageProps) {
   return <Image alt={alt} {...rest} />;
 }
 
+function CustomVideo(props: any) {
+  return (
+    <video autoPlay muted playsInline loop className="rounded-md contrast-[1.075] w-full border border-neutral-800" poster={`/videos/lab/${props.slug}/placeholder.webp`} width={props.resolution.width} height={props.resolution.height}>
+      <source src={`/videos/lab/${props.slug}/optimized.mp4`} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  )
+}
+
 const CustomLink = (props: {
   href: string;
   children: React.ReactNode;
@@ -30,7 +39,8 @@ const CustomLink = (props: {
 
 const components = {
   Image: CustomImage,
-  Link: CustomLink
+  Link: CustomLink,
+  Video: CustomVideo,
 };
 
 interface MDXProps {
