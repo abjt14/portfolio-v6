@@ -21,7 +21,15 @@ export const metadata = {
     description: 'Crafting engaging experiences for the internet.',
     url: 'https://abjt.dev/',
     locale: 'en_IE',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: 'https://abjt.dev/images/og-image.jpg',
+        alt: 'abjt . web developer . digital artist',
+        width: 1440,
+        height: 820,
+      },
+    ],
   },
   twitter: {
     title: 'abjt . web developer . digital artist',
