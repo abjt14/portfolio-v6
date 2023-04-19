@@ -15,7 +15,7 @@ const CustomLink = (props: {
 
   if (href.startsWith('/')) {
     return (
-      <Link {...props} className="text-neutral-200 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150">
+      <Link {...props} className="text-neutral-200 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150 will-change-auto">
         {props.children}
       </Link>
     );
@@ -25,7 +25,7 @@ const CustomLink = (props: {
     return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} className="text-neutral-200 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150" />;
+  return <a target="_blank" rel="noopener noreferrer" aria-label={props.href} {...props} className="text-neutral-200 underline underline-offset-4 decoration-neutral-700 hover:decoration-neutral-400 transition-all duration-150 will-change-auto" />;
 };
 
 const components = {

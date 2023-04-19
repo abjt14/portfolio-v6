@@ -14,9 +14,10 @@ export const experiments: Experiment[] = [
     "link": "https://github.com/abjt14/bongo-copy-cat",
     "source": "https://github.com/abjt14/bongo-copy-cat",
     "resolution": {
-      "width": 1165,
+      "width": 1150,
       "height": 720
     },
+    "date": "January 2023"
   },
   {
     "slug": "border-highlight",
@@ -24,11 +25,12 @@ export const experiments: Experiment[] = [
     "component": "BorderHighlight",
     "type": "internal",
     "link": "/lab/border-highlight",
-    "source": "https://codepen.io/abjt14",
+    "source": "https://codepen.io/abjt14/pen/wvYzeNP",
     "resolution": {
-      "width": 720,
-      "height": 720
+      "width": 640,
+      "height": 640
     },
+    "date": "February 2023"
   },
   {
     "slug": "laser-progress-beam",
@@ -36,11 +38,12 @@ export const experiments: Experiment[] = [
     "component": "LaserProgressBeam",
     "type": "internal",
     "link": "/lab/laser-progress-beam",
-    "source": "https://codepen.io/abjt14",
+    "source": "https://codepen.io/abjt14/pen/rNqMwPR",
     "resolution": {
       "width": 1280,
       "height": 640
     },
+    "date": "February 2023"
   },
   {
     "slug": "searchlight",
@@ -48,10 +51,11 @@ export const experiments: Experiment[] = [
     "component": "Searchlight",
     "type": "internal",
     "link": "/lab/searchlight",
-    "source": "https://codepen.io/abjt14",
+    "source": "https://codepen.io/abjt14/pen/zYmKzbV",
     "resolution": {
-      "width": 960,
+      "width": 1200,
       "height": 720
     },
+    "date": "March 2023"
   },
 ];

@@ -30,7 +30,7 @@ export default function Social() {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-neutral-500 text-lg flex gap-2 justify-center items-center duration-150 transition-color hover:text-neutral-50 sm:text-base"
+          className="text-neutral-500 text-lg flex gap-2 justify-center items-center duration-150 transition-color will-change-auto hover:text-neutral-50 sm:text-base"
         >
           <link.icon />
           <span className="hidden sm:inline">{link.text}</span>
