@@ -1,6 +1,6 @@
 # Developer Portfolio
 
-This is the 6th iteration of my developer portfolio.
+This is the **6th** iteration of my **developer portfolio**. My focus this time was to create a *minimal*, *scalable*, and *performant* website. This project took me one month to build, from ideation to deployment.
 
 ## Built With
 -- TypeScript
