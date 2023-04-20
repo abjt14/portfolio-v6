@@ -1,3 +1,9 @@
+// This file contains personal information and is subject to the Creative Commons
+// Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+
+// See https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode for more
+// information.
+
 export default function Social() {
   const links = [
     {
