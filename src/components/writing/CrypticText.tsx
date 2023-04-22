@@ -1,21 +1,22 @@
 'use client';
 
+import clsx from "clsx";
 import { useEffect, useState } from "react"
 
-export default function CrypticText({ text }: { text: string }) {
+export default function CrypticText({ text, classNames, delay }: { text: string, classNames?: string, delay?: number }) {
 
   const [crytic, setCryptic] = useState('');
 
   useEffect(() => {
     const letters = "abcdefghijklmnopqrst1234567890                  ";
-    const animationDelayFactor = 0.5;
+    const animationDelayFactor = 1;
     const repeatDivider = 4;
 
-    const timeoutValue = parseInt(
+    const timeoutValue = (parseInt(
       getComputedStyle(document.documentElement)
       .getPropertyValue('--animation-delay-writing')
       .replace('s', '')
-    ) * 30 * animationDelayFactor;
+    ) + (delay ? delay : 0)) * 30 * animationDelayFactor;
 
     let iteration = 0;
     let elapsed = 0;
@@ -27,7 +28,7 @@ export default function CrypticText({ text }: { text: string }) {
       if ((elapsed > timeoutValue) && (elapsed % repeatDivider === 0)) {
         let encryption = text
           .split("")
-          .map((letter, index) => {
+          .map((_, index) => {
             if(index < iteration) {
               return text[index];
             }
@@ -51,9 +52,12 @@ export default function CrypticText({ text }: { text: string }) {
     animate();
 
     return () => cancelAnimationFrame(animation);
-  }, [text]);
+  }, [delay, text]);
 
   return (
-    <span className="text-inherit truncate block">{crytic}</span>
+    <span className={clsx(
+      "text-inherit truncate block",
+      classNames && classNames
+    )}>{crytic}</span>
   )
 }
