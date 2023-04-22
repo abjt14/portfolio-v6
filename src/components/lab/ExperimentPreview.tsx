@@ -11,7 +11,7 @@ export default function ExperimentPreview({experiment}: {experiment: processedDa
     <Link href={experiment.link} target={experiment.type === "internal" ? "_self" : "_blank"}>
       <div
         className={clsx(
-          "relative rounded-md bg-neutral-950 border border-neutral-900 p-1 overflow-hidden group",
+          "relative rounded-md bg-neutral-1000 border border-neutral-950 p-1 overflow-hidden hover:bg-neutral-950 hover:border-neutral-900 transition-all duration-75 will-change-auto",
           "after:content-[''] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-b after:from-transparent after:from-50% after:to-black after:z-10 after:pointer-events-none after:transition-all after:duration-300 after:will-change-auto",
           styles.fadein
         )}
