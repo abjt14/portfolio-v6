@@ -116,17 +116,17 @@ export default function Experiment({ params }: {
           >
             <div>
               {prev ? (
-                <Link href={`/lab/${prev.slug}`} className="flex flex-col gap-1 text-left">
+                <Link href={`/lab/${prev.slug}`} className="flex flex-col gap-1 text-left group">
                   <p className="text-xs text-neutral-500">Previous</p>
-                  <h2 className="text-sm text-neutral-50">{prev.name}</h2>
+                  <h2 className="text-sm text-neutral-50 underline underline-offset-4 decoration-transparent transition-all duration-150 will-change-auto group-hover:decoration-neutral-600">{prev.name}</h2>
                 </Link>
               ) : null}
             </div>
             <div>
               {next ? (
-                <Link href={`/lab/${next.slug}`} className="flex flex-col gap-1 text-right">
+                <Link href={`/lab/${next.slug}`} className="flex flex-col gap-1 text-right group">
                   <p className="text-xs text-neutral-500">Next</p>
-                  <h2 className="text-sm text-neutral-50">{next.name}</h2>
+                  <h2 className="text-sm text-neutral-50 underline underline-offset-4 decoration-transparent transition-all duration-150 will-change-auto group-hover:decoration-neutral-600 ">{next.name}</h2>
                 </Link>
               ) : null}
             </div>
