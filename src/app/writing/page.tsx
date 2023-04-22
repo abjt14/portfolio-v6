@@ -26,7 +26,7 @@ export default function Writing() {
             <div
               key={article._id}
               className={clsx(
-                "flex flex-col gap-[.125rem]",
+                "flex flex-col gap-[.125rem] group",
                 styles.fadein
               )}
               style={{
@@ -34,16 +34,24 @@ export default function Writing() {
               }}
             >
               <Link href={`/writing/${article.slug}`} className="text-neutral-50">
-                <CrypticTextDynamic text={article.title} />
+                <div className="flex gap-2 items-center justify-start">
+                  <CrypticTextDynamic text={article.title} delay={index * .1} />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 hidden sm:block text-transparent -translate-x-1 group-hover:text-current group-hover:-translate-x-0 transition-all duration-150 will-change-auto">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+                <div className="flex gap-1 justify-start items-baseline text-sm text-neutral-600">
+                  <CrypticTextDynamic text={format(new Date(article.publishedAt), 'MMMM yyyy')} delay={index * .1} />
+                  <CrypticTextDynamic text='•' delay={index * .1} />
+                  <CrypticTextDynamic
+                    text={
+                    (article.readingTime > 0 ? article.readingTime.toString() : '1')
+                      + ' min'
+                    }
+                    delay={index * .1}
+                  />
+                </div>
               </Link>
-              <div className="flex gap-1 justify-start items-baseline text-sm text-neutral-600">
-                <CrypticTextDynamic text={format(new Date(article.publishedAt), 'MMMM yyyy')} />
-                <CrypticTextDynamic text='•' />
-                <CrypticTextDynamic text={
-                  (article.readingTime > 0 ? article.readingTime.toString() : '1')
-                  + ' min'
-                } />
-              </div>
             </div>
           ))
         }
