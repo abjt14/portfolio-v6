@@ -3,20 +3,25 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react"
 
-export default function CrypticText({ text, classNames, delay }: { text: string, classNames?: string, delay?: number }) {
+type CrypticTextDynamicProps = {
+  text: string,
+  classNames?: string,
+  delay?: number,
+}
+
+export default function CrypticText({ text, classNames, delay }: CrypticTextDynamicProps) {
 
   const [crytic, setCryptic] = useState('');
 
   useEffect(() => {
     const letters = "abcdefghijklmnopqrst1234567890                  ";
-    const animationDelayFactor = 1;
     const repeatDivider = 4;
 
     const timeoutValue = (parseInt(
       getComputedStyle(document.documentElement)
       .getPropertyValue('--animation-delay-writing')
       .replace('s', '')
-    ) + (delay ? delay : 0)) * 30 * animationDelayFactor;
+    ) + (delay ? delay : 0)) * 30 * 2;
 
     let iteration = 0;
     let elapsed = 0;
@@ -55,9 +60,16 @@ export default function CrypticText({ text, classNames, delay }: { text: string,
   }, [delay, text]);
 
   return (
-    <span className={clsx(
-      "text-inherit truncate block",
-      classNames && classNames
-    )}>{crytic}</span>
+    <span
+      className={clsx(
+        "text-inherit truncate block",
+        classNames && classNames
+      )}
+      style={{
+        animationDelay: `calc(var(--animation-delay-writing) + ${delay}s)`
+      }}
+    >
+      {crytic}
+    </span>
   )
 }
