@@ -1,5 +1,18 @@
 export const experiments: Experiment[] = [
   {
+    "slug": "portfolio-v4",
+    "name": "Portfolio v4",
+    "component": null,
+    "type": "external",
+    "link": "https://portfolio-v4-abjt14.vercel.app/",
+    "source": "https://portfolio-v4-abjt14.vercel.app/",
+    "resolution": {
+      "width": 1264,
+      "height": 720
+    },
+    "date": "January 2022"
+  },
+  {
     "slug": "endless-burrito",
     "name": "Endless Burrito",
     "component": null,
@@ -10,7 +23,20 @@ export const experiments: Experiment[] = [
       "width": 449,
       "height": 720
     },
-    "date": "December 2022"
+    "date": "May 2022"
+  },
+  {
+    "slug": "portfolio-v5",
+    "name": "Portfolio v5",
+    "component": null,
+    "type": "external",
+    "link": "https://portfolio-v5-abjt14.vercel.app/",
+    "source": "https://portfolio-v5-abjt14.vercel.app/",
+    "resolution": {
+      "width": 1264,
+      "height": 720
+    },
+    "date": "August 2022"
   },
   {
     "slug": "bongo-copy-cat",
