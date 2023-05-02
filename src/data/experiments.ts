@@ -1,11 +1,17 @@
 export const experiments: Experiment[] = [
-  // {
-  //   "slug": "endless-burrito",
-  //   "name": "Endless Burrito",
-  //   "component": null,
-  //   "type": "external",
-  //   "link": "https://github.com/abjt14/endless-burrito"
-  // },
+  {
+    "slug": "endless-burrito",
+    "name": "Endless Burrito",
+    "component": null,
+    "type": "external",
+    "link": "https://abjt14.github.io/endless-burrito/",
+    "source": "https://abjt14.github.io/endless-burrito/",
+    "resolution": {
+      "width": 449,
+      "height": 720
+    },
+    "date": "December 2022"
+  },
   {
     "slug": "bongo-copy-cat",
     "name": "Bongo Copy Cat",
@@ -58,4 +64,17 @@ export const experiments: Experiment[] = [
     },
     "date": "March 2023"
   },
+  {
+    "slug": "web-inspire",
+    "name": "Web Inspire",
+    "component": null,
+    "type": "external",
+    "link": "https://web-inspire.vercel.app/",
+    "source": "https://web-inspire.vercel.app/",
+    "resolution": {
+      "width": 1264,
+      "height": 720
+    },
+    "date": "April 2023"
+  }
 ];
