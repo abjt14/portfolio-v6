@@ -2,6 +2,7 @@ import './globals.css';
 import Navigation from '@/components/Navigation';
 import clsx from 'clsx';
 import localFont from 'next/font/local';
+import { Analytics } from '@vercel/analytics/react';
 
 const kaiseiTokumin = localFont({
   src: '../../public/fonts/kaisei-tokumin-latin-700-normal.woff2',
@@ -67,6 +68,7 @@ export default function RootLayout({
         <div className="min-h-screen flex gap-24 max-w-screen-xl 2xl:max-w-screen-xl [&>section]:min-w-0 [&>section]:max-w-screen-md 2xl:[&>section]:max-w-screen-xl m-auto py-4 px-4 flex-col relative sm:flex-row sm:pt-0 sm:pb-0 sm:px-8 md:px-16 sm:gap-6">
           <Navigation />
           {children}
+          <Analytics />
         </div>
       </body>
     </html>

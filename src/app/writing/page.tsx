@@ -52,10 +52,7 @@ export default function Writing() {
                     classNames={styles.fadein}
                   />
                   <CrypticTextDynamic
-                    text={
-                    (article.readingTime > 0 ? article.readingTime.toString() : '1')
-                      + ' min'
-                    }
+                    text={(article.readingTime > 0 ? article.readingTime.toString() : '1')+ ' min'}
                     delay={index * .1}
                     classNames={styles.fadein}
                   />

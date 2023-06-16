@@ -12,6 +12,7 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
+    "@vercel/analytics": "^1.0.1",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.1",
