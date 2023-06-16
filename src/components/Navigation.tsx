@@ -75,7 +75,7 @@ export default function Navigation() {
       )}>
         <nav className={clsx(
           "sm:z-30 sm:pr-6 sm:sticky sm:after:will-change-auto",
-          "sm:after:content-[''] sm:after:absolute sm:after:top-[0%] sm:after:-right-[calc(.135rem)] sm:after:w-1 sm:after:h-1/4 sm:after:rounded-md sm:after:transition-all sm:after:duration-300 sm:after:transform-gpu sm:after:will-change-auto",
+          "sm:after:content-[''] sm:after:absolute sm:after:top-[0%] sm:after:-right-[calc(.15rem)] sm:after:w-1 sm:after:h-1/4 sm:after:rounded-md sm:after:transition-all sm:after:duration-300 sm:after:transform-gpu sm:after:will-change-auto",
           styles.pill,
           path === links[0].href && 'sm:after:top-[0%]',
           path.includes(links[1].href) && 'sm:after:top-[25%]',
