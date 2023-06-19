@@ -102,5 +102,18 @@ export const experiments: Experiment[] = [
       "height": 720
     },
     "date": "April 2023"
+  },
+  {
+    "slug": "agamjeet",
+    "name": "Agamjeet's Blog",
+    "component": null,
+    "type": "external",
+    "link": "https://www.agamjeet.com/",
+    "source": "https://www.agamjeet.com/",
+    "resolution": {
+      "width": 1264,
+      "height": 720
+    },
+    "date": "June 2023"
   }
 ];
