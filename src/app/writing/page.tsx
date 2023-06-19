@@ -1,19 +1,15 @@
 import styles from '@/styles/Writing.module.css';
 import { allArticles } from 'contentlayer/generated';
 import { format } from 'date-fns';
-import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import CrypticText from '@/components/writing/CrypticText';
 
 export const metadata: Metadata = {
   title: 'Writing',
   description: 'Thoughts, ideas, and stories from my journey as a developer.',
 };
-
-const CrypticTextDynamic = dynamic(() => import('@/components/writing/CrypticText'), {
-  ssr: false,
-});
 
 export default function Writing() {
   return (
@@ -31,7 +27,7 @@ export default function Writing() {
             >
               <Link href={`/writing/${article.slug}`} className="text-neutral-50">
                 <div className="flex gap-2 items-center justify-start">
-                  <CrypticTextDynamic
+                  <CrypticText
                     text={article.title}
                     delay={index * .1}
                     classNames={styles.fadein}
@@ -41,17 +37,17 @@ export default function Writing() {
                   </svg>
                 </div>
                 <div className="flex gap-1 justify-start items-baseline text-sm text-neutral-600">
-                  <CrypticTextDynamic
+                  <CrypticText
                     text={format(new Date(article.publishedAt), 'MMMM yyyy')}
                     delay={index * .1}
                     classNames={styles.fadein}
                   />
-                  <CrypticTextDynamic
+                  <CrypticText
                     text='•'
                     delay={index * .1}
                     classNames={styles.fadein}
                   />
-                  <CrypticTextDynamic
+                  <CrypticText
                     text={(article.readingTime > 0 ? article.readingTime.toString() : '1')+ ' min'}
                     delay={index * .1}
                     classNames={styles.fadein}
