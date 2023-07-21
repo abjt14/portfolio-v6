@@ -5,7 +5,7 @@ import Image, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Link from 'next/link';
 import clsx from 'clsx';
-import styles from '@/styles/MDX.module.css';
+import styles from '@/styles/MDXClientSide.module.css';
 
 function CustomImage(props: ImageProps) {
   const { alt, ...rest } = props;
@@ -65,12 +65,14 @@ export default function MDX({ code }: MDXProps) {
           const tid = setTimeout(
             () => {
               setIsKeyPressed(true);
+              document.documentElement.classList.add('after:opacity-[.05]');
             }
           , 500);
 
           setTimeoutId(tid);
         } else {
           clearTimeout(timeoutId as ReturnType<typeof setTimeout>);
+          document.documentElement.classList.remove('after:opacity-[.05]');
           setTimeoutId(null);
           setIsKeyPressed(false);
         }
@@ -98,6 +100,7 @@ export default function MDX({ code }: MDXProps) {
       className={clsx(
         "flex flex-col gap-4",
         isKeyPressed && styles.focusedReading,
+        isKeyPressed && "after:opacity-[.05]",
       )}
     >
       <MDXComponent components={{ ...components }} />
