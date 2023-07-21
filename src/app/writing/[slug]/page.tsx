@@ -2,6 +2,7 @@ import { Article, allArticles } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 import MDX from '@/components/writing/MDX';
+import MDXClientSide from '@/components/writing/MDXClientSide';
 import { Metadata } from 'next';
 
 export async function generateStaticParams() {
@@ -49,10 +50,10 @@ export default function Article({ params } : { params: { slug: string } }) {
         <div className="flex gap-2 justify-start items-baseline text-sm text-neutral-500">
           <p>{format(new Date(article.publishedAt), 'MMMM yyyy')}</p>
           <p>•</p>
-          <p>{(article.readingTime > 0 ? article.readingTime.toString() : '1')+ ' min'}</p>
+          <p>{(article.readingTime > 0 ? article.readingTime.toString() : '1')+ ' minutes'}</p>
         </div>
       </div>
-      <MDX code={article.body.code} />
+      <MDXClientSide code={article.body.code} />
     </section>
   )
 }
