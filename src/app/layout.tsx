@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={clsx(
       "antialiased bg-black font-sans text-neutral-50",
-      "after:content-[''] after:fixed after:top-0 after:left-0 after:w-screen after:h-screen after:pointer-events-none after:z-50 after:bg-orange-100 after:bg-opacity-[.075]",
+      "after:content-[''] after:fixed after:top-0 after:left-0 after:w-screen after:h-screen after:pointer-events-none after:z-50 after:bg-orange-100 after:bg-opacity-[.075] after:transition-opacity after:duration-300",
       kaiseiTokumin.variable
     )}>
       <body>
