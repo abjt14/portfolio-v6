@@ -122,12 +122,12 @@ export default function Navigation() {
             ))}
           </ul>
         </nav>
-        {
+        {/* {
           (path.includes(links[2].href) && path !== links[2].href) &&
           <div className="text-xs text-neutral-500 pr-6 text-right hidden sm:block">
             Hold down <kbd className="text-neutral-50">Option</kbd> or <kbd className="text-neutral-50">Alt</kbd> key to enable focused reading.
           </div>
-        }
+        } */}
       </div>
     </aside>
   )

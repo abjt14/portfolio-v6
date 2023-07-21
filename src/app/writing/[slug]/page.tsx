@@ -53,7 +53,7 @@ export default function Article({ params } : { params: { slug: string } }) {
           <p>{(article.readingTime > 0 ? article.readingTime.toString() : '1')+ ' minutes'}</p>
         </div>
       </div>
-      <MDXClientSide code={article.body.code} />
+      <MDX code={article.body.code} />
     </section>
   )
 }
