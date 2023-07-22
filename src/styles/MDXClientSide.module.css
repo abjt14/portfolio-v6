@@ -7,7 +7,7 @@
 }
 
 .focusedReading > *:hover {
-  @apply sm:text-neutral-200 sm:transition-colors sm:duration-300;
+  @apply sm:transition-colors sm:duration-300;
 }
 
 .focusedReading > :not(:hover) {
