@@ -135,7 +135,7 @@ export default function Navigation() {
               textWrap: "balance"
             }}
           >
-            Hold down <kbd className="text-neutral-50">Option</kbd> / <kbd className="text-neutral-50">Alt</kbd> to enable or disable focused reading.
+            Press <kbd className="text-neutral-50">Shift</kbd> + <kbd className="text-neutral-50">F</kbd> to enable or disable focused reading.
           </div>
         }
       </div>

@@ -54,43 +54,20 @@ interface MDXProps {
 
 export default function MDX({ code }: MDXProps) {
   const MDXComponent = useMDXComponent(code);
-
   const [focusedReading, setFocusedReading] = useState(false);
 
   useEffect(() => {
-    let start = 0;
-    let timeout: NodeJS.Timeout;
-
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (start === 0 && event.altKey) {
-        start = Date.now();
-
-        timeout = setTimeout(
-          () => {
-            if (Date.now() - start > 500 && start !== 0) {
-              setFocusedReading(!focusedReading);
-            }
-
-            start = 0;
-            clearTimeout(timeout);
-          }
-        , 500);
-      }
-    };
-
-    const handleKeyUp = (event: KeyboardEvent) => {
-      if (start === 0 && event.altKey) {
-        start = 0;
+      if ((event.key === 'f' || event.key === 'F') && event.shiftKey) {
+        event.preventDefault();
+        setFocusedReading(!focusedReading);
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keyup', handleKeyUp);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('keyup', handleKeyUp);
-      clearTimeout(timeout);
     }
   }, [focusedReading]);
 
