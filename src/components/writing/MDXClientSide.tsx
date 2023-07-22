@@ -55,31 +55,12 @@ interface MDXProps {
 export default function MDX({ code }: MDXProps) {
   const MDXComponent = useMDXComponent(code);
 
-  const [isKeyPressed, setIsKeyPressed] = useState(false);
-  const [timeoutId, setTimeoutId] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [focusedReading, setFocusedReading] = useState(false);
 
   useEffect(() => {
-    const handleKeyDown = (event: any) => {
-      if (event.key === 'Alt') {
-        if (!isKeyPressed && !timeoutId) {
-          const tid = setTimeout(
-            () => {
-              setIsKeyPressed(true);
-              document.documentElement.classList.add('after:opacity-[.05]');
-            }
-          , 500);
-
-          setTimeoutId(tid);
-        } else {
-          clearTimeout(timeoutId as ReturnType<typeof setTimeout>);
-          document.documentElement.classList.remove('after:opacity-[.05]');
-          setTimeoutId(null);
-          setIsKeyPressed(false);
-        }
-      }
-
-      if (event.key === 'Escape') {
-        setIsKeyPressed(false);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.key === 'ƒ' || event.key === 'f')  && event.altKey) {
+        setFocusedReading(!focusedReading);
       }
     };
 
@@ -87,20 +68,15 @@ export default function MDX({ code }: MDXProps) {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        setTimeoutId(null);
-      }
     };
-  }, [timeoutId, isKeyPressed]);
+  }, [focusedReading]);
 
   return (
     <article
       className={clsx(
         "flex flex-col gap-4",
-        isKeyPressed && styles.focusedReading,
-        isKeyPressed && "after:opacity-[.05]",
+        focusedReading && styles.focusedReading,
+        focusedReading && "after:opacity-[.05]",
       )}
     >
       <MDXComponent components={{ ...components }} />

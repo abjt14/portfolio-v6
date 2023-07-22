@@ -1,3 +1,7 @@
+.focusedReading {
+  @apply cursor-crosshair;
+}
+
 .focusedReading > p {
   @apply sm:transition-[filter] sm:duration-300 sm:ease-in-out;
 }
