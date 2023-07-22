@@ -58,17 +58,40 @@ export default function MDX({ code }: MDXProps) {
   const [focusedReading, setFocusedReading] = useState(false);
 
   useEffect(() => {
+    let start = 0;
+    let timeout: NodeJS.Timeout;
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if ((event.key === 'ƒ' || event.key === 'f')  && event.altKey) {
-        setFocusedReading(!focusedReading);
+      if (start === 0 && event.altKey) {
+        start = Date.now();
+
+        timeout = setTimeout(
+          () => {
+            if (Date.now() - start > 500 && start !== 0) {
+              setFocusedReading(!focusedReading);
+            }
+
+            start = 0;
+            clearTimeout(timeout);
+          }
+        , 500);
+      }
+    };
+
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (start === 0 && event.altKey) {
+        start = 0;
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-    };
+      document.removeEventListener('keyup', handleKeyUp);
+      clearTimeout(timeout);
+    }
   }, [focusedReading]);
 
   return (
