@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "@/styles/Navigation.module.css";
+import styles from "@/components/styles/Navigation.module.css";
 import { useCallback, useEffect, useMemo } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";

@@ -1,4 +1,4 @@
-import styles from "@/styles/Lab.module.css";
+import styles from "@/components/styles/ExperimentPreview.module.css";
 import clsx from "clsx";
 import Link from "next/link";
 

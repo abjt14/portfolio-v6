@@ -1,4 +1,4 @@
-import styles from "@/styles/Experiment.module.css";
+import styles from "./experiment.module.css";
 import ExperimentExport from "@/components/lab/experiments/ExperimentExport";
 import { experiments } from "@/data/experiments";
 import clsx from "clsx";

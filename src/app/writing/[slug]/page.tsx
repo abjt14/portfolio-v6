@@ -1,7 +1,7 @@
 import { Article, allArticles } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
-import MDX from '@/components/writing/MDX';
+// import MDX from '@/components/writing/MDX';
 import MDXClientSide from '@/components/writing/MDXClientSide';
 import { Metadata } from 'next';
 

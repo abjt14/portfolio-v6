@@ -5,7 +5,7 @@
 // information.
 
 
-import styles from "@/styles/Home.module.css";
+import styles from "./home.module.css";
 import Social from "@/components/home/Social";
 import clsx from "clsx";
 

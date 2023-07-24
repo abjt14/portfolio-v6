@@ -5,7 +5,7 @@ import Image, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Link from 'next/link';
 import clsx from 'clsx';
-import styles from '@/styles/MDXClientSide.module.css';
+import styles from '@/components/styles/MDXClientSide.module.css';
 
 function CustomImage(props: ImageProps) {
   const { alt, ...rest } = props;

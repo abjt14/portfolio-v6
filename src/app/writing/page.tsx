@@ -1,4 +1,4 @@
-import styles from '@/styles/Writing.module.css';
+import styles from './writing.module.css';
 import { allArticles } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import clsx from 'clsx';
